@@ -1,15 +1,27 @@
-# NOTE: uncomment to run CI
-# name: CI
-# on: [pull_request]
-# jobs:
-#   run-ci-tests:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: checkout repo
-#         uses: actions/checkout@v2
-#       - name: Grant perms
-#         run: make perms
-#       - name: Spin up containers
-#         run: make up
-#       - name: Run CI test
-#         run: make ci
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  local-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install local pipeline dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-local.txt
+
+      - name: Run tests (no Docker)
+        run: python -m pytest tests -q

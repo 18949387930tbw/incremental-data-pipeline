@@ -80,3 +80,13 @@ terraform.rc
 Footer
 
 dashboard_files/
+
+# Local run artifacts
+.venv/
+*.out.log
+*.err.log
+
+# local warehouse + generated pipeline artifacts
+*.duckdb
+*.duckdb.wal
+data/warehouse.duckdb
