@@ -330,15 +330,18 @@ def run_pipeline(
     settings: PipelineSettings,
     batch_size: int | None = None,
     max_batches: int | None = None,
+    run_id: str | None = None,
 ) -> str:
     """Run the incremental pipeline and return the run id.
 
     ``batch_size`` defaults to ``settings.batch_size``. By default the run
     drains every available batch for each source; pass ``max_batches=1`` to
     process a single batch per source (useful for tests and step-by-step demos).
+
+    ``run_id`` lets the API hand out the id before the background task starts.
     """
     effective_batch = batch_size or settings.batch_size
-    run_id = str(uuid.uuid4())
+    run_id = run_id or str(uuid.uuid4())
     connection = connect_warehouse(settings.warehouse_path)
     try:
         _start_run(connection, run_id, settings.pipeline_name)
