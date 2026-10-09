@@ -93,6 +93,12 @@ def read_batch(
     )
 
 
+def source_row_count(path: str | Path) -> int:
+    """Count data rows (excluding the header) in a CSV source."""
+    with Path(path).open("r", encoding="utf-8", newline="") as handle:
+        return sum(1 for _ in csv.DictReader(handle))
+
+
 def read_checkpoint(connection: duckdb.DuckDBPyConnection, source_name: str) -> int:
     """Return the stored row offset for a source, or 0 when none exists."""
     row = connection.execute(
