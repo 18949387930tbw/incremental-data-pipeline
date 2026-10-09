@@ -1,0 +1,9 @@
+# Local (no-Docker) pipeline + API dependencies.
+pandas>=2.2
+duckdb>=1.1.0
+plotly>=5.24
+pyarrow>=16.0
+fastapi>=0.115
+uvicorn[standard]>=0.30
+httpx>=0.27
+pytest>=8.0
