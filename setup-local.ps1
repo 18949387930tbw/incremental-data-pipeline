@@ -1,4 +1,4 @@
-# Job Market Data Platform - first-time local setup (Windows PowerShell)
+# Incremental Data Pipeline - first-time local setup (Windows PowerShell)
 # Creates a Python venv and installs the local pipeline + API dependencies.
 $ErrorActionPreference = "Stop"
 $root = $PSScriptRoot

@@ -1,4 +1,4 @@
-# Incremental Local Data Pipeline (beginner_de_project)
+# Incremental Data Pipeline
 
 A Docker-free, incremental upgrade of the original
 [beginner_de_project](https://github.com/josephmachado/beginner_de_project)

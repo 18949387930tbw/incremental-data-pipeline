@@ -1,4 +1,4 @@
-# Job Market Data Platform - run the incremental local pipeline (no Docker needed)
+# Incremental Data Pipeline - run the local pipeline (no Docker needed)
 # Reads data\*.csv through checkpoints, writes data\behaviour_metrics.csv and
 # the dashboard HTML, and records a run in data\warehouse.duckdb.
 $ErrorActionPreference = "Stop"
