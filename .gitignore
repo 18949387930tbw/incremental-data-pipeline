@@ -90,3 +90,7 @@ dashboard_files/
 *.duckdb
 *.duckdb.wal
 data/warehouse.duckdb
+
+# IDE
+.idea/
+*.bak
